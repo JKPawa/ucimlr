@@ -109,7 +109,7 @@ class AirQuality(RegressionDataset):
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
 
 
-        class Appliances_energy_prediction(RegressionDataset):
+class Appliances_energy_prediction(RegressionDataset):
     """
     Link to the dataset [description](https://archive.ics.uci.edu/ml/datasets/Appliances+energy+prediction).
 
@@ -130,7 +130,7 @@ class AirQuality(RegressionDataset):
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
 
 
- class AutoMPG(RegressionDataset):
+class AutoMPG(RegressionDataset):
     """
     Link to the dataset [description](https://archive.ics.uci.edu/ml/datasets/Automobile).
 
@@ -174,7 +174,7 @@ class Automobile(RegressionDataset):
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
 
 
-    class BeijingAirQuality(RegressionDataset):
+class BeijingAirQuality(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data).
 
@@ -183,13 +183,13 @@ class Automobile(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00501/PRSA2017_Data_20130301-20170228.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             if 'PRSA_Data' not in fn:
                 continue
@@ -217,7 +217,7 @@ class BeijingPM(RegressionDataset):
         df = pd.read_csv(file_path)
       
 
- class BiasCorrection(RegressionDataset):
+class BiasCorrection(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/Bias+correction+of+numerical+prediction+model+temperature+forecast).
 
@@ -251,7 +251,7 @@ class BikeSharing(RegressionDataset):
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path))
@@ -260,7 +260,7 @@ class BikeSharing(RegressionDataset):
     
 
 
- class CarbonNanotubes(RegressionDataset):
+class CarbonNanotubes(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/Carbon+Nanotubes).
 
@@ -395,7 +395,7 @@ class PropulsionPlants (RegressionDataset):
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00316/UCI CBM Dataset.zip'
         download_unzip(url, dataset_path)
         filename = 'data.txt'
-         file_path = os.path.join(dataset_path, filename)
+        file_path = os.path.join(dataset_path, filename)
 
         df = pd.read_csv(file_path, index_col='dteday', parse_dates=True)
 
@@ -410,7 +410,7 @@ class ConcreteCompressiveStrength (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Concrete_Data.xls'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/concrete/compressive/Concrete_Data.xls'
@@ -430,7 +430,7 @@ class ComputerHardware (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'machine.data'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/cpu-performance/machine.data'
@@ -449,7 +449,7 @@ class CommunitiesCrimeUnnormalized (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'CommViolPredUnnormalizedData.txt'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00211/CommViolPredUnnormalizedData.txt'
@@ -495,7 +495,7 @@ class  ForecastingOrders(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Daily_Demand_Forecasting_Orders.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00409/Daily_Demand_Forecasting_Orders.csv'
@@ -515,7 +515,7 @@ class ForecastingStoreData(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Daily_Demand_Forecasting_Orders.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00409/'
@@ -589,7 +589,7 @@ class Facebookmetrics (RegressionDataset):
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00368/Facebook_metrics.zip'
         download_unzip(url, dataset_path)
         filename = 'dataset_Facebook.csv'
-         file_path = os.path.join(dataset_path, filename)
+        file_path = os.path.join(dataset_path, filename)
 
         df = pd.read_csv(file_path, sep=';')
 
@@ -604,7 +604,7 @@ class ForestFires(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'forestfires.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv'
@@ -614,7 +614,7 @@ class ForestFires(RegressionDataset):
         df = pd.read_csv(file_path)
 
 
-class GNFUV Unmanned Surface Vehicles Sensor (RegressionDataset):
+class GNFUV(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/GNFUV+Unmanned+Surface+Vehicles+Sensor+Data).
 
@@ -629,7 +629,7 @@ class GNFUV Unmanned Surface Vehicles Sensor (RegressionDataset):
         download_unzip(url, dataset_path)
 
 
-         dfs = []
+        dfs = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             dfs.append(pd.read_csv(file_path, header=None))
@@ -638,7 +638,7 @@ class GNFUV Unmanned Surface Vehicles Sensor (RegressionDataset):
 
 
 
-class GNFUV Unmanned Surface Vehicles Sensor Data Set 2 (RegressionDataset):
+class GNFUV_2(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/GNFUV+Unmanned+Surface+Vehicles+Sensor+Data+Set+2).
 
@@ -653,7 +653,7 @@ class GNFUV Unmanned Surface Vehicles Sensor Data Set 2 (RegressionDataset):
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, header=None))
@@ -677,10 +677,10 @@ class Greenhouse_Gas_Observing_Network (RegressionDataset):
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
-            df.append(pd.read_csv(file_path, header=None,, sep='\s+'))
+            df.append(pd.read_csv(file_path, header=None, sep='\s+'))
 
        
 
@@ -700,7 +700,7 @@ class Hungarian_Chickenpox_Cases (RegressionDataset):
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, index_col='Date', parse_dates=True)) 
@@ -715,7 +715,7 @@ class IIWA14_R820_Gazebo_Dataset_10Trajectories(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'IIWA14-R820-Gazebo-Dataset-10Trayectorias.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00574/IIWA14-R820-Gazebo-Dataset-10Trayectorias.csv'
@@ -735,7 +735,7 @@ class Metro_Interstate_Traffic_Volume(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Metro_Interstate_Traffic_Volume.csv.gz'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00492/Metro_Interstate_Traffic_Volume.csv.gz'
@@ -754,7 +754,7 @@ class News_Popularity_Facebook_Economy(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Facebook_Economy.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/Facebook_Economy.csv'
@@ -774,7 +774,7 @@ class News_Popularity_Facebook_Microsoft(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Facebook_Microsoft.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/Facebook_Microsoft.csv'
@@ -793,7 +793,7 @@ class News_Popularity_Facebook_Palestine(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'Facebook_Palestine.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/Facebook_Palestine.csv'
@@ -812,7 +812,7 @@ class News_Popularity_GooglePlus_Economy(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'GooglePlus_Economy.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/GooglePlus_Economy.csv'
@@ -832,7 +832,7 @@ class News_Popularity_GooglePlus_Microsoft(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'GooglePlus_Microsoft.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/GooglePlus_Microsoft.csv'
@@ -852,7 +852,7 @@ class News_Popularity_GooglePlus_Palestine(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'GooglePlus_Palestine.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/GooglePlus_Palestine.csv'
@@ -871,7 +871,7 @@ class News_Popularity_GooglePlus_Obama(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'GooglePlus_Obama.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/GooglePlus_Obama.csv'
@@ -892,7 +892,7 @@ class News_Popularity_LinkedIn_Economy(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'LinkedIn_Economy.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/LinkedIn_Economy.csv'
@@ -912,7 +912,7 @@ class News_Popularity_LinkedIn_Microsoft(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'LinkedIn_Microsoft.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/LinkedIn_Microsoft.csv'
@@ -931,7 +931,7 @@ class News_Popularity_LinkedIn_Obama(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'LinkedIn_Obama.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/LinkedIn_Obama.csv'
@@ -951,7 +951,7 @@ class News_Popularity_LinkedIn_Palestine(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'LinkedIn_Palestine.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/LinkedIn_Palestine.csv'
@@ -972,7 +972,7 @@ class News_Popularity_News_Final(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'News_Final.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00432/Data/News_Final.csv'
@@ -993,15 +993,15 @@ class Online_Video_Characteristics_and_Transcoding_Time(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00335/online_video_dataset.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if fn='README.txt':
+            if fn == 'README.txt':
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, sep='\t'))
@@ -1065,7 +1065,7 @@ class Physicochemical_Properties_of_Protein_Tertiary_Structure(RegressionDataset
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'CASP.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00265/CASP.csv'
@@ -1084,13 +1084,13 @@ class PPG_DaLiA_Data_Set(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00495/data.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, sep='\t'))
@@ -1104,7 +1104,7 @@ class QSAR_aquatic_toxicity(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'qsar_aquatic_toxicity.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00505/qsar_aquatic_toxicity.csv'
@@ -1114,7 +1114,7 @@ class QSAR_aquatic_toxicity(RegressionDataset):
         df = pd.read_csv(file_path, sep=';', names=["TPSA(Tot)", "SAacc", "H-050", "MLOGP", "RDCHI", " GATS1p", "nN", "C-040", "quantitative response, LC50 [-LOG(mol/L)]"])
 
 
-class QSAR_fish_bioconcentration_factor(BCF) (RegressionDataset):
+class QSAR_fish_bioconcentration_factor(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/QSAR+fish+bioconcentration+factor+%28BCF%29).
 
@@ -1123,21 +1123,21 @@ class QSAR_fish_bioconcentration_factor(BCF) (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00511/QSAR_fish_BCF.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if fn='ECFP_1024_m0-2_b2_c.txt'
+            if fn =='ECFP_1024_m0-2_b2_c.txt':
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, sep='\t'))
 
 
-class QSAR fish toxicity (RegressionDataset):
+class QSAR(RegressionDataset):
     """
     Link to the dataset [description]http://archive.ics.uci.edu/ml/datasets/QSAR+fish+toxicity).
 
@@ -1146,14 +1146,14 @@ class QSAR fish toxicity (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         filename = 'qsar_fish_toxicity.csv'
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00504/qsar_fish_toxicity.csv'
         download_file(url, dataset_path, filename)
         file_path = os.path.join(dataset_path, filename)
 
-        df = pd.read_csv(file_path,, sep=';', names=[" CIC0", "SM1_Dz(Z)", " GATS1i", "NdsCH", " NdssC", "MLOGP", "quantitative response, LC50 [-LOG(mol/L)]"])
+        df = pd.read_csv(file_path, sep=';', names=[" CIC0", "SM1_Dz(Z)", " GATS1i", "NdsCH", " NdssC", "MLOGP", "quantitative response, LC50 [-LOG(mol/L)]"])
 
 
 
@@ -1226,15 +1226,15 @@ class Real_time_Election_Results (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00513/ElectionData2019.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if '.csv' not in fn
+            if '.csv' not in fn:
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path))
@@ -1290,15 +1290,15 @@ class SGEMM_GPU_kernel_performance (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00440/sgemm_product_dataset.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if fn = 'Readme.txt'
+            if fn == 'Readme.txt':
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path))
@@ -1314,15 +1314,15 @@ class Simulated_data_for_survival_modelling (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00581/MLtoSurvival-Data.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if fn = '.gitkeep'
+            if fn == '.gitkeep': 
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path))
@@ -1330,7 +1330,7 @@ class Simulated_data_for_survival_modelling (RegressionDataset):
 
 
 
-class SkillCraft1 Master Table(RegressionDataset):
+class SkillCraft1(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/SkillCraft1+Master+Table+Dataset).
 
@@ -1359,15 +1359,15 @@ class SML2010 (RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00274/NEW-DATA.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
-            if fn = '.gitkeep'
+            if fn == '.gitkeep':
                 continue
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, sep='\s+'))
@@ -1403,7 +1403,7 @@ class Solar_Flare(RegressionDataset):
         df = pd.merge(df1, df2)
 
 
-class Synchronous Machine(RegressionDataset):
+class Synchronous_Machine(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/Synchronous+Machine+Data+Set).
 
@@ -1422,7 +1422,7 @@ class Synchronous Machine(RegressionDataset):
         df = pd.read_excel(file_path)
 
 
-class Stock portfolio performance(RegressionDataset):
+class Stock_portfolio(RegressionDataset):
     """
     Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/Stock+portfolio+performance).
 
@@ -1471,13 +1471,13 @@ class WaveEnergyConverters(RegressionDataset):
     split (str): One of {'train', 'validation', 'test'}
     validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
     """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
+    def __init__(self, root, split=TRAIN, validation_size=0.2):
         dataset_path = os.path.join(root, self.name)
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00494/WECs_DataSet.zip'
         download_unzip(url, dataset_path)
 
 
-         df = []
+        df = []
         for fn in os.listdir(dataset_path):
             file_path = os.path.join(dataset_path, fn)
             df.append(pd.read_csv(file_path, header=None))
@@ -1537,23 +1537,4 @@ class YachtHydrodynamics(RegressionDataset):
         url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data'
         download_file(url, dataset_path, filename)
         df = pd.read_csv(file_path, header=None, sep='\s+')
-       
-class WaveEnergyConverters(RegressionDataset):
-    """
-    Link to the dataset [description](http://archive.ics.uci.edu/ml/datasets/YearPredictionMSD).
-
-    # Parameters
-    root (str): Local path for storing/reading dataset files.
-    split (str): One of {'train', 'validation', 'test'}
-    validation_size (float): How large fraction in (0, 1) of the training partition to use for validation.
-    """
-     def __init__(self, root, split=TRAIN, validation_size=0.2):
-        dataset_path = os.path.join(root, self.name)
-        url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/00203/earPredictionMSD.txt.zip'
-        download_unzip(url, dataset_path)
-
-
-         df = []
-        for fn in os.listdir(dataset_path):
-            file_path = os.path.join(dataset_path, fn)
-            df.append(pd.read_csv(file_path, header=None))
+        
