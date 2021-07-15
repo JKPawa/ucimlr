@@ -124,10 +124,12 @@ class Appliances_energy_prediction(RegressionDataset):
         url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00374/energydata_complete.csv'
         download_file(url, dataset_path, filename)
         file_path = os.path.join(dataset_path, filename)
-
-        df = pd.read_csv(file_path, sep='\t', header=None)
+        df = pd.read_csv(file_path, parse_dates=[0, 1])
+        
+        df.date = (df.date - df.date.min()).astype('timedelta64[D]')
         y_columns = ['Appliances']
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
+        self.problem_type = REGRESSION
 
 
 class AutoMPG(RegressionDataset):
@@ -170,7 +172,7 @@ class Automobile(RegressionDataset):
         file_path = os.path.join(dataset_path, filename)
 
         df = pd.read_csv(file_path,  names = ["symboling", "normalized-losses", "make", "fuel-type", " aspiration", "num-of-doors", "body-style", "drive-wheels", "engine-location", "wheel-base", " length", "width", " height", "curb-weight", "engine-type", "num-of-cylinders", "engine-size", " fuel-system", " bore", "stroke", " compression-ratio", "horsepower", "peak-rpm", "city-mpg", "highway-mpg", "price"])
-        y_columns = ['Appliances']
+        y_columns = ['']
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
 
 
@@ -215,7 +217,9 @@ class BeijingPM(RegressionDataset):
         file_path = os.path.join(dataset_path, filename)
 
         df = pd.read_csv(file_path)
-      
+        y_columns=['pm2.5']
+        self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type)
+        self.problem_type = REGRESSION
 
 class BiasCorrection(RegressionDataset):
     """
