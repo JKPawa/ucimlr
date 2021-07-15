@@ -152,6 +152,7 @@ class AutoMPG(RegressionDataset):
 
         y_columns = ['mpg']
         self.x, self.y = split_normalize_sequence(df, y_columns, validation_size, split, self.type_)
+        sel.problem_type=REGRESSION
 
 
 
